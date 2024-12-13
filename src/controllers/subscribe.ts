@@ -1,6 +1,9 @@
 import { Request, Response } from "express"
 import { subscribeUser } from "../utilities/inputValidation";
 import { emailHtmlForUser, sendmail } from "../utilities/notification"
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 export const subscribe = async(req: Request, res: Response)  => {
     try{
@@ -14,7 +17,7 @@ export const subscribe = async(req: Request, res: Response)  => {
 
             const html = emailHtmlForUser();
             await sendmail(
-              `${process.env.GMAIL_USER}`,
+              `${process.env.DEV_GMAIL_USER}`,
               email,
               "Thank You for Subscribing! Stay Tuned for Exciting Updates from The Link PR and Marketing Solutions",
               html

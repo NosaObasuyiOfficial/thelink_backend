@@ -18,7 +18,7 @@ export const transporter = nodemailer.createTransport({
 export const sendmail = async(from:string, to:string, subject:string, html:string)=>{
     try{
          await transporter.sendMail({
-            from: DEV_GMAIL_USER!,
+            from,
             to,
             subject,
             html,
