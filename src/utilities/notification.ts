@@ -7,8 +7,8 @@ const { DEV_GMAIL_USER, DEV_GMAIL_PASSWORD } = process.env
 export const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth:{
-        user: DEV_GMAIL_USER,
-        pass: DEV_GMAIL_PASSWORD
+        user: DEV_GMAIL_USER!,
+        pass: DEV_GMAIL_PASSWORD!
     },
     tls:{
         rejectUnauthorized: false
@@ -18,7 +18,7 @@ export const transporter = nodemailer.createTransport({
 export const sendmail = async(from:string, to:string, subject:string, html:string)=>{
     try{
          await transporter.sendMail({
-            from: DEV_GMAIL_USER,
+            from: DEV_GMAIL_USER!,
             to,
             subject,
             html,
